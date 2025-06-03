@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Productivity Tracker</h1>
+    </header>
+
+    <main>
+        <section id="daily-checkin">
+            <h2>Daily Check-in</h2>
+
+            <div>
+                <label for="energy-predicted">Predicted Energy (1-10):</label>
+                <input type="number" id="energy-predicted" name="energy-predicted" min="1" max="10">
+            </div>
+
+            <div>
+                <label for="sleep-hours">Sleep Hours:</label>
+                <input type="number" id="sleep-hours" name="sleep-hours" min="0" max="24" step="0.5">
+            </div>
+
+            <div>
+                <label for="sleep-quality">Sleep Quality (1-10):</label>
+                <input type="number" id="sleep-quality" name="sleep-quality" min="1" max="10">
+            </div>
+
+            <div>
+                <label for="context-tags">Context Tags (comma-separated):</label>
+                <input type="text" id="context-tags" name="context-tags" placeholder="e.g., good_weather, deadline">
+                <p><small>Predefined: good_weather, bad_weather, deadline_pressure, social_plans, well_rested, tired, stressed, relaxed, busy_schedule, free_time, motivation_high, motivation_low. Max 1 custom.</small></p>
+            </div>
+
+            <div>
+                <label for="intention">Daily Intention:</label>
+                <textarea id="intention" name="intention" rows="3" placeholder="What's your main focus today?"></textarea>
+            </div>
+
+            <button id="save-checkin">Save Morning Check-in</button>
+        </section>
+
+        <section id="progress-display">
+            <h2>Today's Progress / Weekly Goals</h2>
+            <div id="progress-items">
+                <!-- JS will populate this -->
+            </div>
+        </section>
+
+        <section id="suggestions">
+            <h2>Today's Suggestions</h2>
+            <div id="suggestions-container">
+                <!-- JS will populate this -->
+            </div>
+        </section>
+
+        <section id="day-type">
+            <h2>End of Day Reflection</h2>
+
+            <div>
+                <label for="energy-actual">Actual Energy (1-10):</label>
+                <input type="number" id="energy-actual" name="energy-actual" min="1" max="10">
+            </div>
+
+            <div>
+                <p>How was your day overall?</p>
+                <input type="radio" id="day-green" name="day-type-selection" value="green">
+                <label for="day-green" style="color: var(--green-day);">Green Day (Productive, felt good)</label><br>
+
+                <input type="radio" id="day-yellow" name="day-type-selection" value="yellow">
+                <label for="day-yellow" style="color: var(--yellow-day);">Yellow Day (Okay, some progress)</label><br>
+
+                <input type="radio" id="day-red" name="day-type-selection" value="red">
+                <label for="day-red" style="color: var(--red-day);">Red Day (Challenging, little progress)</label><br>
+            </div>
+
+            <div>
+                <label for="reflection">End of Day Reflection Note:</label>
+                <textarea id="reflection" name="reflection" rows="3" placeholder="Any thoughts on how the day went?"></textarea>
+            </div>
+            <button id="save-reflection">Save End of Day Reflection</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Productivity Tracker</p>
+    </footer>
+
+    <script src="js/dataManager.js"></script>
+    <script src="js/dailyCheckin.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/suggestions.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
