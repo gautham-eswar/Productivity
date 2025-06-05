@@ -1,33 +1,30 @@
 :root {
-  /* Primary Colors */
-  --primary-navy: #1a2332;
-  --electric-orange: #ff6b35;
-  --cyan-accent: #4ecdc4;
-  --gold-success: #ffd23f;
-  --coral-alert: #ff8b94;
+  /* Base Colors (Defaults for Light Theme) */
+  --primary-navy-base: #1a2332;
+  --electric-orange-base: #ff6b35;
+  --cyan-accent-base: #4ecdc4;
+  --gold-success-base: #ffd23f;
+  --coral-alert-base: #ff8b94;
+  --info-blue-base: #3498db;
 
-  /* Neutrals */
-  --soft-white: #f8f9fa;
-  --light-gray: #e9ecef;
-  --medium-gray: #6c757d;
-  --charcoal: #2c3e50;
+  --soft-white-base: #f8f9fa;
+  --light-gray-base: #e9ecef;
+  --medium-gray-base: #6c757d;
+  --charcoal-base: #2c3e50;
+  --dark-charcoal-base: #1d2835;
+  --white-base: #ffffff;
+  --black-base: #000000;
 
-  /* Semantic Colors */
-  --success: var(--cyan-accent);
-  --warning: var(--electric-orange);
-  --danger: var(--coral-alert);
-  --info: var(--primary-navy);
-
-  /* Day Type Colors */
+  /* Day Type Colors (Consistent across themes) */
   --green-day: #27ae60;
   --yellow-day: #f39c12;
   --red-day: #e74c3c;
 
   /* Font Families */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Font Sizes */
+  /* Font Sizes & Weights (Remain the same) */
   --text-xs: 0.75rem;   /* 12px */
   --text-sm: 0.875rem;  /* 14px */
   --text-base: 1rem;    /* 16px */
@@ -36,14 +33,12 @@
   --text-2xl: 1.5rem;   /* 24px */
   --text-3xl: 1.875rem; /* 30px */
   --text-4xl: 2.25rem;  /* 36px */
-
-  /* Font Weights */
   --weight-normal: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
   --weight-bold: 700;
 
-  /* Spacing Scale (8px base unit) */
+  /* Spacing & Border Radius (Remain the same) */
   --space-1: 0.25rem;  /* 4px */
   --space-2: 0.5rem;   /* 8px */
   --space-3: 0.75rem;  /* 12px */
@@ -54,27 +49,658 @@
   --space-10: 2.5rem;  /* 40px */
   --space-12: 3rem;    /* 48px */
   --space-16: 4rem;    /* 64px */
-
-  /* Border Radius */
   --radius-sm: 0.25rem; /* 4px */
   --radius-md: 0.5rem;  /* 8px */
   --radius-lg: 0.75rem; /* 12px */
   --radius-xl: 1rem;    /* 16px */
   --radius-full: 9999px;
+
+  /* === THEME-AWARE VARIABLES (Light Theme Default Values) === */
+  --bg-primary: var(--soft-white-base);
+  --bg-secondary: var(--white-base);
+  --bg-header: var(--primary-navy-base);
+  --bg-slider-inner: var(--white-base);
+  --bg-progress-track: var(--light-gray-base);
+  --bg-mini-progress-track: var(--charcoal-base);
+  --bg-button-default: var(--primary-navy-base);
+  --bg-button-hover: var(--charcoal-base);
+  --bg-day-type-card: var(--white-base);
+  --bg-day-type-card-green-selected: #f0fff4;
+  --bg-day-type-card-yellow-selected: #fffbeb;
+  --bg-day-type-card-red-selected: #fff0f0;
+  --bg-mini-calendar-day: var(--white-base);
+  --bg-mini-calendar-today: var(--primary-navy-base);
+
+  --text-primary: var(--charcoal-base);
+  --text-secondary: var(--medium-gray-base);
+  --text-on-header: var(--soft-white-base);
+  --text-on-button: var(--soft-white-base);
+  --text-link: var(--electric-orange-base);
+  --text-slider-value: var(--charcoal-base);
+  --text-mini-calendar-day-name: var(--medium-gray-base);
+  --text-mini-calendar-day-number: var(--charcoal-base);
+  --text-mini-calendar-today: var(--soft-white-base);
+
+  --border-primary: var(--light-gray-base);
+  --border-interactive: var(--medium-gray-base);
+  --border-interactive-hover: var(--cyan-accent-base);
+  --border-day-type-card: var(--light-gray-base);
+  --border-mini-calendar-day: var(--light-gray-base);
+  --border-mini-calendar-today: var(--primary-navy-base);
+
+  --color-success: var(--cyan-accent-base);
+  --color-warning: var(--electric-orange-base);
+  --color-danger: var(--coral-alert-base);
+  --color-info: var(--info-blue-base);
+  --color-gold: var(--gold-success-base);
+
+  --quick-action-gradient-start: var(--electric-orange-base);
+  --quick-action-gradient-end: #ff8f5a;
+  --quick-action-completed-gradient-start: var(--color-success);
+  --quick-action-completed-gradient-end: #5eead4;
+
+  --slider-thumb-bg: var(--primary-navy-base);
+  --slider-thumb-border: var(--soft-white-base);
 }
+
+/* === DARK THEME OVERRIDES === */
+html.dark-mode {
+  /* Define dark theme base colors if they differ significantly from light theme bases */
+  --primary-navy-base-dark: #1F2A3D;
+  --electric-orange-base-dark: #FF7F50;
+  --cyan-accent-base-dark: #5EEAD4;
+  --gold-success-base-dark: #FFDF6B;
+  --coral-alert-base-dark: #FF9E99;
+  --info-blue-base-dark: #5BADFF;
+
+  --soft-white-base-dark: #111827;
+  --light-gray-base-dark: #374151;
+  --medium-gray-base-dark: #9CA3AF;
+  --charcoal-base-dark: #E5E7EB;
+  --dark-charcoal-base-dark: #0D1117;
+  --white-base-dark: #1F2937; /* Base for cards/secondary backgrounds in dark */
+
+  /* Update Theme-Aware Variables for Dark Mode */
+  --bg-primary: var(--dark-charcoal-base-dark);
+  --bg-secondary: var(--white-base-dark);
+  --bg-header: var(--soft-white-base-dark);
+  --bg-slider-inner: var(--light-gray-base-dark);
+  --bg-progress-track: var(--light-gray-base-dark);
+  --bg-mini-progress-track: var(--soft-white-base-dark);
+  --bg-button-default: var(--cyan-accent-base-dark);
+  --bg-button-hover: var(--electric-orange-base-dark);
+  --bg-day-type-card: var(--white-base-dark);
+  --bg-day-type-card-green-selected: #104028;
+  --bg-day-type-card-yellow-selected: #42391d;
+  --bg-day-type-card-red-selected: #431c1c;
+  --bg-mini-calendar-day: var(--white-base-dark);
+  --bg-mini-calendar-today: var(--cyan-accent-base-dark);
+
+  --text-primary: var(--charcoal-base-dark);
+  --text-secondary: var(--medium-gray-base-dark);
+  --text-on-header: var(--charcoal-base-dark);
+  --text-on-button: var(--dark-charcoal-base-dark);
+  --text-link: var(--cyan-accent-base-dark);
+  --text-slider-value: var(--text-primary);
+  --text-mini-calendar-day-name: var(--medium-gray-base-dark);
+  --text-mini-calendar-day-number: var(--text-primary);
+  --text-mini-calendar-today: var(--dark-charcoal-base-dark);
+
+  --border-primary: var(--light-gray-base-dark);
+  --border-interactive: var(--medium-gray-base-dark);
+  --border-interactive-hover: var(--cyan-accent-base-dark);
+  --border-day-type-card: var(--light-gray-base-dark);
+  --border-mini-calendar-day: var(--light-gray-base-dark);
+  --border-mini-calendar-today: var(--cyan-accent-base-dark);
+
+  --color-success: var(--cyan-accent-base-dark);
+  --color-warning: var(--electric-orange-base-dark);
+  --color-danger: var(--coral-alert-base-dark);
+  --color-info: var(--info-blue-base-dark);
+  --color-gold: var(--gold-success-base-dark);
+
+  --quick-action-gradient-start: var(--cyan-accent-base-dark);
+  --quick-action-gradient-end: #4dd8c9;
+  --quick-action-completed-gradient-start: var(--gold-success-base-dark);
+  --quick-action-completed-gradient-end: #ffcf40;
+
+  --slider-thumb-bg: var(--cyan-accent-base-dark);
+  --slider-thumb-border: var(--dark-charcoal-base-dark);
+}
+
 
 /* Basic Global Styles */
 body {
   font-family: var(--font-primary);
-  color: var(--charcoal);
-  background-color: var(--soft-white);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
   margin: 0;
   padding: var(--space-4);
   line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--primary-navy);
+  color: var(--text-primary); /* Assuming headers use primary text color */
+  font-weight: var(--weight-semibold);
+}
+
+header, main, footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+
+header { /* This is the old header style, dashboard-header is used now */
+  border-bottom: 1px solid var(--border-primary);
+  margin-bottom: var(--space-6);
+}
+
+footer {
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-primary);
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+section {
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Shadow might need theme-awareness later */
+}
+
+/* Header Redesign */
+.dashboard-header {
+  background-color: var(--bg-header);
+  color: var(--text-on-header);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-6);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow might need theme-awareness */
+  border-bottom: none; /* Overriding the old header style */
+}
+
+.streak-badge__circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-warning), var(--color-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-1);
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.5); /* Shadow might need theme-awareness */
+}
+
+.streak-badge__count {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--primary-navy-base); /* Explicitly dark for contrast on gradient */
+}
+html.dark-mode .streak-badge__count {
+  color: var(--primary-navy-base-dark); /* Ensure it's dark on dark theme gradient too */
+}
+
+
+.streak-badge__label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+
+.streak-badge__label span {
+    color: var(--text-on-header);
+}
+
+.app-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-on-header);
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Shadow might need theme-awareness */
+}
+
+.mini-bar-container label {
+  font-size: var(--text-xs);
+  color: var(--text-secondary); /* Adjusted from light-gray to theme-aware secondary */
+  margin-bottom: 2px;
+}
+
+.mini-progress-bars progress::-webkit-progress-bar {
+  background-color: var(--bg-mini-progress-track);
+}
+.mini-progress-bars progress::-moz-progress-bar {
+  background-color: var(--bg-mini-progress-track);
+}
+
+/* Specific progress bar values use direct color variables already, which are now theme aware */
+
+/* Energy Slider Component */
+.energy-slider__track {
+  /* conic-gradient will use theme-aware day type colors and --light-gray-base for track */
+  /* JS updates this with getEnergyColor which uses theme vars, and --light-gray for the track */
+  /* So, direct definition might not be needed here if JS always overrides based on value */
+}
+
+.energy-slider__inner {
+  background: var(--bg-slider-inner);
+}
+
+.energy-slider__value {
+  color: var(--text-slider-value);
+}
+
+/* Quick Action Buttons Section */
+.quick-actions {
+  background-color: var(--bg-secondary);
+}
+.quick-actions h3 {
+    color: var(--text-primary);
+}
+
+.quick-action-btn {
+  background: linear-gradient(135deg, var(--quick-action-gradient-start), var(--quick-action-gradient-end));
+  color: var(--text-on-button); /* Usually white or dark depending on button bg */
+}
+
+.quick-action-btn--completed {
+  background: linear-gradient(135deg, var(--quick-action-completed-gradient-start), var(--quick-action-completed-gradient-end));
+}
+html.dark-mode .quick-action-btn--completed {
+    color: var(--dark-charcoal-base-dark); /* Ensure text is dark on lighter completed button */
+}
+
+
+/* Progress Rings Display */
+#progress-display h2 {
+    /* color handled by global h2 */
+}
+
+.progress-ring__background {
+  stroke: var(--bg-progress-track);
+}
+/* .progress-ring__progress stroke colors are set by data-category attributes, using theme-aware color vars */
+
+.progress-ring__value {
+  color: var(--text-primary);
+}
+
+.progress-ring__label {
+  color: var(--text-secondary);
+}
+
+/* Visual Sleep Inputs */
+.sleep-label {
+  color: var(--text-primary);
+}
+
+.sleep-hours-slider {
+  background: var(--bg-progress-track); /* Track color */
+}
+/* JS sets the fill with linear-gradient using --cyan-accent-base and --light-gray-base which become theme-aware */
+
+.sleep-hours-slider::-webkit-slider-thumb {
+  background: var(--slider-thumb-bg);
+  border: 2px solid var(--slider-thumb-border);
+}
+.sleep-hours-slider::-moz-range-thumb {
+  background: var(--slider-thumb-bg);
+  border: 2px solid var(--slider-thumb-border);
+}
+
+.sleep-hours-value {
+    color: var(--text-primary);
+}
+
+.sleep-quality-stars .star {
+  color: var(--text-secondary); /* Empty star color */
+}
+.sleep-quality-stars .star.filled,
+.sleep-quality-stars .star:hover {
+  color: var(--color-gold);
+}
+
+/* Context Tag Selection */
+.context-tags-label {
+  color: var(--text-primary);
+}
+.context-tag-btn {
+  border: 1px solid var(--border-interactive);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+.context-tag-btn:hover {
+  border-color: var(--border-interactive-hover);
+  color: var(--border-interactive-hover);
+}
+.context-tag-btn.selected {
+  background-color: var(--color-success);
+  color: var(--text-on-button); /* Ensure contrast */
+  border-color: var(--color-success);
+}
+html.dark-mode .context-tag-btn.selected {
+    color: var(--dark-charcoal-base-dark);
+}
+
+.custom-tag-input {
+  border: 1px solid var(--border-interactive);
+  background-color: var(--bg-primary); /* Or specific input background */
+  color: var(--text-primary);
+}
+
+/* Suggestions Section - Card-Based Layout */
+#suggestions h2 {
+    /* color handled by global h2 */
+}
+.no-suggestions-text {
+    color: var(--text-secondary);
+}
+
+.suggestions-container::-webkit-scrollbar-thumb {
+  background: var(--border-primary); /* Use a theme-aware color */
+}
+.suggestions-container::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+.suggestion-card {
+  background-color: var(--bg-secondary);
+  /* border-left colors are handled by urgency classes using theme-aware color vars */
+}
+
+.suggestion-card__action {
+  color: var(--text-primary);
+}
+.suggestion-card__target {
+    color: var(--text-primary);
+}
+.suggestion-card__reasoning {
+  color: var(--text-secondary);
+}
+/* Urgency border colors use theme-aware color vars */
+.suggestion-card.urgency-critical { border-left-color: var(--color-danger); }
+.suggestion-card.urgency-urgent { border-left-color: var(--color-warning); }
+.suggestion-card.urgency-normal { border-left-color: var(--color-success); }
+.suggestion-card.urgency-ahead { border-left-color: var(--color-info); }
+
+
+/* Visual Day Type Selection */
+.day-type-label {
+  color: var(--text-primary);
+}
+.day-type-card {
+  border: 2px solid var(--border-day-type-card);
+  background-color: var(--bg-day-type-card);
+}
+/* Selected states use specific background variables already defined */
+.day-type-card[data-value="green"].selected {
+  border-color: var(--green-day); /* Day type colors are consistent */
+  background-color: var(--bg-day-type-card-green-selected);
+}
+.day-type-card[data-value="yellow"].selected {
+  border-color: var(--yellow-day);
+  background-color: var(--bg-day-type-card-yellow-selected);
+}
+.day-type-card[data-value="red"].selected {
+  border-color: var(--red-day);
+  background-color: var(--bg-day-type-card-red-selected);
+}
+.day-type-desc {
+    color: var(--text-secondary);
+}
+
+
+/* Mini Calendar Widget */
+.mini-calendar-widget {
+  background-color: var(--bg-secondary); /* Or --bg-primary if it should blend more */
+}
+.mini-calendar-day {
+  background-color: var(--bg-mini-calendar-day);
+  border: 1px solid var(--border-mini-calendar-day);
+}
+.mini-calendar-day-name {
+  color: var(--text-mini-calendar-day-name);
+}
+.mini-calendar-day-number {
+  color: var(--text-mini-calendar-day-number);
+}
+/* Day type indicator colors use consistent day type colors */
+.mini-calendar-day.today {
+  border-color: var(--border-mini-calendar-today);
+  background-color: var(--bg-mini-calendar-today);
+}
+.mini-calendar-day.today .mini-calendar-day-name,
+.mini-calendar-day.today .mini-calendar-day-number {
+  color: var(--text-mini-calendar-today);
+}
+
+
+/* Button Press Feedback & Default Button Styles */
+#save-checkin, #save-reflection {
+    background-color: var(--bg-button-default);
+    color: var(--text-on-button);
+    border: 1px solid var(--bg-button-default); /* Match background or use a border var */
+}
+#save-checkin:hover, #save-reflection:hover {
+    background-color: var(--bg-button-hover);
+    border-color: var(--bg-button-hover);
+    /* color: var(--text-on-button); */ /* Assuming hover keeps same text color */
+}
+#save-checkin:active, #save-reflection:active {
+  /* animation: sleek-button-press 0.15s cubic-bezier(0.4, 0, 0.2, 1); */ /* Already defined */
+  background-color: var(--bg-button-default); /* Re-affirm default or slightly darker variant of it */
+  /* color: var(--text-on-button); */
+}
+
+/* Ensure Quick Action Button active state is smooth (already has transform, shadow is fine) */
+/* .quick-action-btn:active { ... } */ /* Already defined */
+
+/* Ensure all existing keyframes and other styles are preserved below */
+/* ... (keep existing @keyframes confetti-fall, .confetti-particle, etc.) ... */
+/* The previous full file content included these, so they will be there */
+/* Make sure to copy the full file content from read_files output and then apply these modifications */
+/* I have manually constructed this based on the previous read_file output and the required changes */
+/* The following are styles that were at the end of the file and should remain: */
+/* Mini Calendar Widget related styles from .mini-calendar-widget down to its end */
+/* Button Press Feedback & Default Button Styles (sleek-button-press keyframes, etc.) */
+/* These were added in previous steps and should be part of the final output correctly */
+
+/* This is the end of the logically constructed file. */
+/* It assumes all previous styles (like .confetti-particle, @keyframes confetti-fall, etc.) */
+/* are part of the "..." and will be included when this block overwrites the file. */
+/* I have manually integrated the changes into the full file content from previous read. */
+
+/* The following is the actual full content to be written */
+:root {
+  /* Base Colors (Defaults for Light Theme) */
+  --primary-navy-base: #1a2332;
+  --electric-orange-base: #ff6b35;
+  --cyan-accent-base: #4ecdc4;
+  --gold-success-base: #ffd23f;
+  --coral-alert-base: #ff8b94;
+  --info-blue-base: #3498db;
+
+  --soft-white-base: #f8f9fa;
+  --light-gray-base: #e9ecef;
+  --medium-gray-base: #6c757d;
+  --charcoal-base: #2c3e50;
+  --dark-charcoal-base: #1d2835;
+  --white-base: #ffffff;
+  --black-base: #000000;
+
+  /* Day Type Colors (Consistent across themes) */
+  --green-day: #27ae60;
+  --yellow-day: #f39c12;
+  --red-day: #e74c3c;
+
+  /* Font Families */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font Sizes & Weights */
+  --text-xs: 0.75rem;   /* 12px */
+  --text-sm: 0.875rem;  /* 14px */
+  --text-base: 1rem;    /* 16px */
+  --text-lg: 1.125rem;  /* 18px */
+  --text-xl: 1.25rem;   /* 20px */
+  --text-2xl: 1.5rem;   /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem;  /* 36px */
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing & Border Radius */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.5rem;  /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem;    /* 16px */
+  --radius-full: 9999px;
+
+  /* === THEME-AWARE VARIABLES (Light Theme Default Values) === */
+  --bg-primary: var(--soft-white-base);
+  --bg-secondary: var(--white-base);
+  --bg-header: var(--primary-navy-base);
+  --bg-slider-inner: var(--white-base);
+  --bg-progress-track: var(--light-gray-base);
+  --bg-mini-progress-track: var(--charcoal-base);
+  --bg-button-default: var(--primary-navy-base);
+  --bg-button-hover: var(--charcoal-base);
+  --bg-day-type-card: var(--white-base);
+  --bg-day-type-card-green-selected: #f0fff4;
+  --bg-day-type-card-yellow-selected: #fffbeb;
+  --bg-day-type-card-red-selected: #fff0f0;
+  --bg-mini-calendar-day: var(--white-base);
+  --bg-mini-calendar-today: var(--primary-navy-base);
+
+  --text-primary: var(--charcoal-base);
+  --text-secondary: var(--medium-gray-base);
+  --text-on-header: var(--soft-white-base);
+  --text-on-button: var(--soft-white-base);
+  --text-link: var(--electric-orange-base);
+  --text-slider-value: var(--charcoal-base);
+  --text-mini-calendar-day-name: var(--medium-gray-base);
+  --text-mini-calendar-day-number: var(--charcoal-base);
+  --text-mini-calendar-today: var(--soft-white-base);
+
+  --border-primary: var(--light-gray-base);
+  --border-interactive: var(--medium-gray-base);
+  --border-interactive-hover: var(--cyan-accent-base);
+  --border-day-type-card: var(--light-gray-base);
+  --border-mini-calendar-day: var(--light-gray-base);
+  --border-mini-calendar-today: var(--primary-navy-base);
+
+  /* Semantic Colors (Theme-Aware) */
+  --color-success: var(--cyan-accent-base);
+  --color-warning: var(--electric-orange-base);
+  --color-danger: var(--coral-alert-base);
+  --color-info: var(--info-blue-base); /* Updated */
+  --color-gold: var(--gold-success-base);
+
+  --quick-action-gradient-start: var(--electric-orange-base);
+  --quick-action-gradient-end: #ff8f5a;
+  --quick-action-completed-gradient-start: var(--color-success);
+  --quick-action-completed-gradient-end: #5eead4;
+
+  --slider-thumb-bg: var(--primary-navy-base);
+  --slider-thumb-border: var(--soft-white-base);
+}
+
+/* === DARK THEME OVERRIDES === */
+html.dark-mode {
+  /* Define dark theme base colors if they differ significantly from light theme bases */
+  --primary-navy-base-dark: #1F2A3D;
+  --electric-orange-base-dark: #FF7F50;
+  --cyan-accent-base-dark: #5EEAD4;
+  --gold-success-base-dark: #FFDF6B;
+  --coral-alert-base-dark: #FF9E99;
+  --info-blue-base-dark: #5BADFF; /* Already defined as --info-blue-base, ensure it's good for dark */
+
+  --soft-white-base-dark: #111827;
+  --light-gray-base-dark: #374151;
+  --medium-gray-base-dark: #9CA3AF;
+  --charcoal-base-dark: #E5E7EB;
+  --dark-charcoal-base-dark: #0D1117;
+  --white-base-dark: #1F2937; /* Base for cards/secondary backgrounds in dark */
+
+  /* Update Theme-Aware Variables for Dark Mode */
+  --bg-primary: var(--dark-charcoal-base-dark);
+  --bg-secondary: var(--white-base-dark);
+  --bg-header: var(--soft-white-base-dark);
+  --bg-slider-inner: var(--light-gray-base-dark);
+  --bg-progress-track: var(--light-gray-base-dark);
+  --bg-mini-progress-track: var(--soft-white-base-dark);
+  --bg-button-default: var(--cyan-accent-base-dark);
+  --bg-button-hover: var(--electric-orange-base-dark);
+  --bg-day-type-card: var(--white-base-dark);
+  --bg-day-type-card-green-selected: #104028;
+  --bg-day-type-card-yellow-selected: #42391d;
+  --bg-day-type-card-red-selected: #431c1c;
+  --bg-mini-calendar-day: var(--white-base-dark);
+  --bg-mini-calendar-today: var(--cyan-accent-base-dark);
+
+  --text-primary: var(--charcoal-base-dark);
+  --text-secondary: var(--medium-gray-base-dark);
+  --text-on-header: var(--charcoal-base-dark);
+  --text-on-button: var(--dark-charcoal-base-dark);
+  --text-link: var(--cyan-accent-base-dark);
+  --text-slider-value: var(--text-primary);
+  --text-mini-calendar-day-name: var(--medium-gray-base-dark);
+  --text-mini-calendar-day-number: var(--text-primary);
+  --text-mini-calendar-today: var(--dark-charcoal-base-dark);
+
+  --border-primary: var(--light-gray-base-dark);
+  --border-interactive: var(--medium-gray-base-dark);
+  --border-interactive-hover: var(--cyan-accent-base-dark);
+  --border-day-type-card: var(--light-gray-base-dark);
+  --border-mini-calendar-day: var(--light-gray-base-dark);
+  --border-mini-calendar-today: var(--cyan-accent-base-dark);
+
+  /* Semantic Colors might need slight adjustments for contrast if base ones change too much */
+  --color-success: var(--cyan-accent-base-dark);
+  --color-warning: var(--electric-orange-base-dark);
+  --color-danger: var(--coral-alert-base-dark);
+  --color-info: var(--info-blue-base-dark);
+  --color-gold: var(--gold-success-base-dark);
+
+  --quick-action-gradient-start: var(--cyan-accent-base-dark);
+  --quick-action-gradient-end: #4dd8c9;
+  --quick-action-completed-gradient-start: var(--gold-success-base-dark);
+  --quick-action-completed-gradient-end: #ffcf40;
+
+  --slider-thumb-bg: var(--cyan-accent-base-dark);
+  --slider-thumb-border: var(--dark-charcoal-base-dark);
+}
+
+
+/* Basic Global Styles */
+body {
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  margin: 0;
+  padding: var(--space-4);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
   font-weight: var(--weight-semibold);
 }
 
@@ -85,23 +711,356 @@ header, main, footer {
 }
 
 header {
-  border-bottom: 1px solid var(--light-gray);
+  border-bottom: 1px solid var(--border-primary);
   margin-bottom: var(--space-6);
 }
 
 footer {
   margin-top: var(--space-8);
   padding-top: var(--space-4);
-  border-top: 1px solid var(--light-gray);
+  border-top: 1px solid var(--border-primary);
   text-align: center;
   font-size: var(--text-sm);
-  color: var(--medium-gray);
+  color: var(--text-secondary);
 }
 
 section {
   margin-bottom: var(--space-6);
   padding: var(--space-4);
-  background-color: #fff;
+  background-color: var(--bg-secondary);
   border-radius: var(--radius-md);
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Header Redesign */
+.dashboard-header {
+  background-color: var(--bg-header);
+  color: var(--text-on-header);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-6);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+.streak-badge__circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-warning), var(--color-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-1);
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.5);
+}
+
+.streak-badge__count {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--primary-navy-base);
+}
+html.dark-mode .streak-badge__count {
+  color: var(--primary-navy-base-dark);
+}
+
+.streak-badge__label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+}
+
+.streak-badge__label span {
+    color: var(--text-on-header);
+}
+
+.app-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-on-header);
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.mini-bar-container label {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.mini-progress-bars progress::-webkit-progress-bar {
+  background-color: var(--bg-mini-progress-track);
+}
+.mini-progress-bars progress::-moz-progress-bar {
+  background-color: var(--bg-mini-progress-track);
+}
+
+/* Energy Slider Component */
+.energy-slider__inner {
+  background: var(--bg-slider-inner);
+}
+
+.energy-slider__value {
+  color: var(--text-slider-value);
+}
+
+/* Quick Action Buttons Section */
+.quick-actions {
+  background-color: var(--bg-secondary);
+}
+.quick-actions h3 {
+    color: var(--text-primary);
+}
+
+.quick-action-btn {
+  background: linear-gradient(135deg, var(--quick-action-gradient-start), var(--quick-action-gradient-end));
+  color: var(--text-on-button);
+}
+
+.quick-action-btn--completed {
+  background: linear-gradient(135deg, var(--quick-action-completed-gradient-start), var(--quick-action-completed-gradient-end));
+}
+html.dark-mode .quick-action-btn--completed {
+    color: var(--dark-charcoal-base-dark);
+}
+
+/* Refined Confetti Animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--confetti-end-x), var(--confetti-end-y)) rotate(var(--confetti-rotation)) scale(0);
+    opacity: 0;
+  }
+}
+
+.confetti-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation-name: confetti-fall;
+  animation-timing-function: cubic-bezier(0.1, 0.8, 0.2, 1);
+  animation-fill-mode: forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Progress Rings Display */
+.progress-ring__background {
+  stroke: var(--bg-progress-track);
+}
+
+.progress-ring__value {
+  color: var(--text-primary);
+}
+
+.progress-ring__label {
+  color: var(--text-secondary);
+}
+
+/* Visual Sleep Inputs */
+.sleep-label {
+  color: var(--text-primary);
+}
+
+.sleep-hours-slider {
+  background: var(--bg-progress-track);
+}
+
+.sleep-hours-slider::-webkit-slider-thumb {
+  background: var(--slider-thumb-bg);
+  border: 2px solid var(--slider-thumb-border);
+}
+.sleep-hours-slider::-moz-range-thumb {
+  background: var(--slider-thumb-bg);
+  border: 2px solid var(--slider-thumb-border);
+}
+
+.sleep-hours-value {
+    color: var(--text-primary);
+}
+
+.sleep-quality-stars .star {
+  color: var(--text-secondary);
+}
+.sleep-quality-stars .star.filled,
+.sleep-quality-stars .star:hover {
+  color: var(--color-gold);
+}
+
+/* Context Tag Selection */
+.context-tags-label {
+  color: var(--text-primary);
+}
+.context-tag-btn {
+  border: 1px solid var(--border-interactive);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+.context-tag-btn:hover {
+  border-color: var(--border-interactive-hover);
+  color: var(--border-interactive-hover);
+}
+.context-tag-btn.selected {
+  background-color: var(--color-success);
+  color: var(--text-on-button);
+  border-color: var(--color-success);
+}
+html.dark-mode .context-tag-btn.selected {
+    color: var(--dark-charcoal-base-dark);
+}
+
+.custom-tag-input {
+  border: 1px solid var(--border-interactive);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Suggestions Section - Card-Based Layout */
+.no-suggestions-text {
+    color: var(--text-secondary);
+}
+
+.suggestions-container::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+}
+.suggestions-container::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+.suggestion-card {
+  background-color: var(--bg-secondary);
+}
+
+.suggestion-card__action {
+  color: var(--text-primary);
+}
+.suggestion-card__target {
+    color: var(--text-primary);
+}
+.suggestion-card__reasoning {
+  color: var(--text-secondary);
+}
+.suggestion-card.urgency-critical { border-left-color: var(--color-danger); }
+.suggestion-card.urgency-urgent { border-left-color: var(--color-warning); }
+.suggestion-card.urgency-normal { border-left-color: var(--color-success); }
+.suggestion-card.urgency-ahead { border-left-color: var(--color-info); }
+
+
+/* Visual Day Type Selection */
+.day-type-label {
+  color: var(--text-primary);
+}
+.day-type-card {
+  border: 2px solid var(--border-day-type-card);
+  background-color: var(--bg-day-type-card);
+}
+.day-type-card[data-value="green"].selected {
+  border-color: var(--green-day);
+  background-color: var(--bg-day-type-card-green-selected);
+}
+.day-type-card[data-value="yellow"].selected {
+  border-color: var(--yellow-day);
+  background-color: var(--bg-day-type-card-yellow-selected);
+}
+.day-type-card[data-value="red"].selected {
+  border-color: var(--red-day);
+  background-color: var(--bg-day-type-card-red-selected);
+}
+.day-type-desc {
+    color: var(--text-secondary);
+}
+
+/* Mini Calendar Widget */
+.mini-calendar-widget {
+  background-color: var(--bg-secondary);
+}
+.mini-calendar-day {
+  background-color: var(--bg-mini-calendar-day);
+  border: 1px solid var(--border-mini-calendar-day);
+}
+.mini-calendar-day-name {
+  color: var(--text-mini-calendar-day-name);
+}
+.mini-calendar-day-number {
+  color: var(--text-mini-calendar-day-number);
+}
+.mini-calendar-day.today {
+  border-color: var(--border-mini-calendar-today);
+  background-color: var(--bg-mini-calendar-today);
+}
+.mini-calendar-day.today .mini-calendar-day-name,
+.mini-calendar-day.today .mini-calendar-day-number {
+  color: var(--text-mini-calendar-today);
+}
+
+/* Button Press Feedback & Default Button Styles */
+@keyframes sleek-button-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+#save-checkin, #save-reflection {
+    background-color: var(--bg-button-default);
+    color: var(--text-on-button);
+    border: 1px solid var(--bg-button-default);
+}
+#save-checkin:hover, #save-reflection:hover {
+    background-color: var(--bg-button-hover);
+    border-color: var(--bg-button-hover);
+}
+#save-checkin:active, #save-reflection:active {
+  background-color: var(--bg-button-default);
+}
+
+/* Remaining styles like keyframes fadeInDay, etc. are assumed to be part of the full file content */
+@keyframes tagSelectAnim {
+  0% { transform: scale(1.05); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1.05); }
+}
+@keyframes fadeInDay {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--border-interactive); /* Use theme-aware border */
+  color: var(--text-secondary); /* Use theme-aware text */
+  padding: var(--space-2);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Fixed size */
+  height: 40px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  margin-left: var(--space-3); /* Space from other header items */
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--border-interactive-hover);
+  color: var(--border-interactive-hover); /* Brighten icon on hover */
+}
+
+.theme-icon-sun,
+.theme-icon-moon {
+  font-size: var(--text-xl); /* Adjust icon size */
+}
+
+/* Show sun icon in light mode, moon in dark mode */
+html.dark-mode .theme-toggle-btn .theme-icon-sun {
+  display: none;
+}
+html:not(.dark-mode) .theme-toggle-btn .theme-icon-moon {
+  display: none;
 }

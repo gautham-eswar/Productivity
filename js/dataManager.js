@@ -107,4 +107,73 @@ class DataManager {
     this.data.patterns = { ...this.data.patterns, ...newPatterns};
     this.saveData();
   }
+
+  // Helper to get ISO week number for a date
+  getISOWeek(date) {
+      const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+      const dayNum = d.getUTCDay() || 7;
+      d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+      const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+      return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  }
+
+  // Get current week's date strings (Mon to Sun) in "YYYY-MM-DD" format
+  getCurrentWeekDateStrings() {
+      const today = new Date();
+      const currentDay = today.getDay(); // 0 (Sun) to 6 (Sat)
+      const diffToMonday = currentDay === 0 ? -6 : 1 - currentDay; // Adjust Sunday to be end of week
+
+      const monday = new Date(today);
+      monday.setDate(today.getDate() + diffToMonday);
+
+      const weekDates = [];
+      for (let i = 0; i < 7; i++) {
+          const day = new Date(monday);
+          day.setDate(monday.getDate() + i);
+          weekDates.push(day.toISOString().split('T')[0]);
+      }
+      return weekDates;
+  }
+
+  // Get current week string e.g. "2024-W23"
+  getCurrentWeekISOString() {
+      const today = new Date();
+      const year = today.getFullYear();
+      const weekNumber = this.getISOWeek(today);
+      return `${year}-W${String(weekNumber).padStart(2, '0')}`;
+  }
+
+
+  // Calculate total for a category over the given week dates
+  getCategoryProgressForWeek(category, weekDateStrings) {
+      let weeklyTotal = 0;
+      weekDateStrings.forEach(dateStr => {
+          const dailyEntry = this.data.daily[dateStr];
+          if (dailyEntry && dailyEntry.completed) {
+              switch (category) {
+                  case 'jobApps':
+                      weeklyTotal += (dailyEntry.completed.jobApps || 0);
+                      break;
+                  case 'workouts':
+                      if (dailyEntry.completed.workout) weeklyTotal++;
+                      break;
+                  case 'readingPages':
+                      weeklyTotal += (dailyEntry.completed.readingPages || 0);
+                      break;
+                  case 'socialConnections':
+                      if (dailyEntry.completed.socialConnection) weeklyTotal++;
+                      break;
+                  case 'skillsHours':
+                      weeklyTotal += ((dailyEntry.completed.skillsMinutes || 0) / 60);
+                      break;
+                  case 'creativeHours':
+                      weeklyTotal += ((dailyEntry.completed.creativeMinutes || 0) / 60);
+                      break;
+                  default:
+                      break;
+              }
+          }
+      });
+      return weeklyTotal;
+  }
 }

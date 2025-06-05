@@ -5,6 +5,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const dataManager = new DataManager();
   console.log("DataManager initialized. Current data:", dataManager.data);
 
+  // Initialize Theme Manager (should be early to set theme before other UI is built if needed)
+  if (typeof initializeTheme === 'function') {
+    initializeTheme(dataManager);
+  } else {
+    console.error('initializeTheme function not found. Check js/themeManager.js');
+  }
+
+  // Create Energy Slider for Predicted Energy
+  if (typeof createEnergySlider === 'function') {
+    createEnergySlider('energy-slider-predicted', dataManager, 'energyPredicted');
+  } else {
+    console.error('createEnergySlider function not found. Check js/energySlider.js');
+  }
+
+  // Create Energy Slider for Actual Energy
+  if (typeof createEnergySlider === 'function') {
+    createEnergySlider('energy-slider-actual', dataManager, 'energyActual');
+  } else {
+    console.error('createEnergySlider function not found. Check js/energySlider.js');
+  }
+
+  if (typeof createSleepInputs === 'function') {
+    createSleepInputs('sleep-hours-container', 'sleep-quality-container', dataManager);
+  } else {
+    console.error('createSleepInputs function not found. Check js/sleepInputs.js');
+  }
+
+  if (typeof createContextTagSelection === 'function') {
+    createContextTagSelection('context-tags-container', dataManager);
+  } else {
+    console.error('createContextTagSelection function not found. Check js/contextTags.js');
+  }
+
+  if (typeof displayMiniCalendar === 'function') {
+    displayMiniCalendar('mini-calendar-widget', dataManager);
+  } else {
+    console.error('displayMiniCalendar function not found. Check js/miniCalendar.js');
+  }
+
+  if (typeof setupQuickActionButtons === 'function') {
+    setupQuickActionButtons(dataManager);
+  } else {
+    console.error('setupQuickActionButtons function not found. Check js/quickActions.js');
+  }
+
   // Setup Event Listeners from other modules
   // Note: Ensure the functions are globally accessible or refactor for module pattern if preferred later.
   // For this MVP, we assume functions like setupDailyCheckinEventListeners are available globally
@@ -55,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // });
 
   // Add some example interactive elements to test progress updates more easily
-  addProgressTestButtons(dataManager);
+  // addProgressTestButtons(dataManager); // Commented out as Quick Actions are now primary for updates
 
 });
 
@@ -65,19 +110,19 @@ function loadCurrentDayData(dataManager) {
 
     if (dailyData) {
         // Morning Check-in
-        if (dailyData.energyPredicted) document.getElementById('energy-predicted').value = dailyData.energyPredicted;
-        if (dailyData.sleepHours) document.getElementById('sleep-hours').value = dailyData.sleepHours;
-        if (dailyData.sleepQuality) document.getElementById('sleep-quality').value = dailyData.sleepQuality;
-        if (dailyData.contextTags) document.getElementById('context-tags').value = dailyData.contextTags.join(', ');
+        // if (dailyData.energyPredicted) document.getElementById('energy-predicted').value = dailyData.energyPredicted; // Handled by slider
+        // if (dailyData.sleepHours) document.getElementById('sleep-hours').value = dailyData.sleepHours; // Handled by sleepInputs.js
+        // if (dailyData.sleepQuality) document.getElementById('sleep-quality').value = dailyData.sleepQuality; // Handled by sleepInputs.js
+        // if (dailyData.contextTags) document.getElementById('context-tags').value = dailyData.contextTags.join(', '); // Handled by contextTags.js
         if (dailyData.intention) document.getElementById('intention').value = dailyData.intention;
 
         // End of Day Reflection
-        if (dailyData.energyActual) document.getElementById('energy-actual').value = dailyData.energyActual;
+        // if (dailyData.energyActual) document.getElementById('energy-actual').value = dailyData.energyActual; // Handled by slider
         if (dailyData.reflection) document.getElementById('reflection').value = dailyData.reflection;
-        if (dailyData.dayType) {
-            const dayTypeElement = document.querySelector(`input[name="day-type-selection"][value="${dailyData.dayType}"]`);
-            if (dayTypeElement) dayTypeElement.checked = true;
-        }
+        // if (dailyData.dayType) { // Removed: Now handled by setupReflectionEventListeners in dailyCheckin.js
+        //     const dayTypeElement = document.querySelector(`input[name="day-type-selection"][value="${dailyData.dayType}"]`);
+        //     if (dayTypeElement) dayTypeElement.checked = true;
+        // }
     }
 }
 
